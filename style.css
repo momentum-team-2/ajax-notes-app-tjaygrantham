@@ -1,0 +1,23 @@
+* {
+  margin: 1% auto;
+}
+
+h1 {
+  margin: auto 2%;
+}
+
+.item {
+  width: 40%;
+}
+
+.picker-note, .picker-new {
+  cursor: pointer;
+}
+
+p {
+  margin: 0 auto;
+}
+
+.button-danger {
+  margin-top: 10px;
+}
