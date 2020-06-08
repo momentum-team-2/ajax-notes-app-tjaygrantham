@@ -11,7 +11,7 @@
   <script src="https://cdn.jsdelivr.net/npm/moment@2.26.0/moment.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
   <script src="https://cdn.shoelace.style/1.0.0-beta.25/shoelace.js"></script>
-  <script src="https://kit.fontawesome.com/f09fef1962.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
   <script src="main.js" defer></script>
   <title>Notes</title>
 </head>
@@ -41,8 +41,10 @@
   <div class="picker-note-div">
     <a class="picker-note" id="<%= id %>"><h4><%= title %></h4></a>
     <p>Created <%= moment(created).format('MMM D, YYYY h:mm:ss') %></p>
-    <p>Edited <%= moment(changed).format('MMM D, YYYY h:mm:ss') %></p>
-    <button class="button-danger" id="<%= id %>" onclick="deleteNote(event)">Delete</button>
+    <% if (edited) { %>
+      <p>Edited <%= moment(changed).format('MMM D, YYYY h:mm:ss') %></p>
+    <% } %>
+    <button class="button-danger" id="<%= id %>" onclick="deleteNote(event)"><span class="fas fa-otter"></span> Delete</button>
     <hr>
   </div>
 </script>

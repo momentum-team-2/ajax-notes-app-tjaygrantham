@@ -13,6 +13,7 @@ document.querySelector('.editor').addEventListener('submit', event => {
   axios.patch(notesURL+id, {
     'title': title,
     'body': body,
+    'edited': true,
     'changed': moment().valueOf()
   })
   refreshNotes()
@@ -62,12 +63,13 @@ function refreshNotes(event){
 }
 
 function createNote(event){
-  let title = prompt('Enter the title of your new note')
+  let title = prompt('Enter the title of your new note', 'New Note')
   if(title){
     axios.post(notesURL, {
       'title': title,
       'body': '',
       'created': moment().valueOf(),
+      'edited': false,
       'changed': moment().valueOf()
     }).then(() => refreshNotes())
   }
